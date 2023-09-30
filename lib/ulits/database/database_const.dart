@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class ChatNames {
   static List name=[
     "John","Mathew","Ajin","Faisal",
@@ -7,3 +9,12 @@ class ChatNames {
   ];
   
 }
+
+List drawerIcons=[
+  Icon(Icons.group),
+  Icon(Icons.person),
+  Icon(Icons.call_outlined),
+  Icon(Icons.groups),
+  Icon(Icons.save_alt_rounded),
+  Icon(Icons.settings),
+];
