@@ -111,6 +111,8 @@ class _HomePageState extends State<HomePage> {
           itemCount: ChatNames.name.length),
 
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Color.fromARGB(255, 34, 111, 173),
+            elevation: 0,
             child: Icon(Icons.edit),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Search(),))),
     );

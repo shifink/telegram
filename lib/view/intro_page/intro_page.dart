@@ -58,9 +58,9 @@ class IntroPage extends StatelessWidget {
             InkWell(
              onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage(),)),
               child: Container(
-                width: 230,
+                width: 260,
                 height: 50,
-                color: Colors.blue[400],
+                decoration: BoxDecoration( color: Colors.blue[400],borderRadius: BorderRadius.circular(10)),               
                 child: Center(child: Text("Start Messaging",style: TextStyle(color: Colors.white,fontSize: 15),)),
               ),
             ),

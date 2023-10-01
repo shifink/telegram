@@ -39,15 +39,23 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.all(35.0),
+                padding: const EdgeInsets.all(20.0),
                 child: TextField(
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                      hintText: "Country",
+                      labelText: "Country"),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       hintText: "0000000000",
                       labelText: "Phone number"),
                 ),
               ),
-            
             ],
           ),
         ),
