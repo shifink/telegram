@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_page/ulits/database/database_const.dart';
 import 'package:test_page/view/chat_page/chat_page.dart';
+import 'package:test_page/view/home_Page/list_widget.dart';
+import 'package:test_page/view/home_Page/contact.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +21,9 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.search),
+            child: IconButton(onPressed: () {
+              
+            }, icon: Icon(Icons.search),)
           )
         ],
       ),
@@ -64,48 +68,51 @@ class _HomePageState extends State<HomePage> {
                       ],
                     )
                   ],
-                ))
+                )),
+               List(),
           ],
         ),
       ),
       body: ListView.separated(
-          itemBuilder: (context, index) => InkWell(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(),)),
-            child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    backgroundImage:
-                        AssetImage("assets/images/contact image.png"),
-                  ),
-                  title: Text(
-                    ChatNames.name[index],
-                    style: TextStyle(fontWeight: FontWeight.w700),
-                  ),
-                  subtitle: Text("New message"),
-                  trailing: Column(
-                    children: [
-                      Text(
-                        "may 4",
-                        style: TextStyle(color: Colors.black45),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      CircleAvatar(
-                        radius: 12,
-                        backgroundColor: Color.fromARGB(255, 10, 210, 17),
-                        child: Text(
-                          "1",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      )
-                    ],
-                  ),
+          itemBuilder: (context, index) => ListTile(
+           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(),)),
+                leading: CircleAvatar(
+                  radius: 30,
+                  backgroundImage:
+                      AssetImage("assets/images/contact image.png"),
                 ),
-          ),
+                title: Text(
+                  ChatNames.name[index],
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: Text("New message"),
+                trailing: Column(
+                  children: [
+                    Text(
+                      "may 4",
+                      style: TextStyle(color: Colors.black45),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Color.fromARGB(255, 10, 210, 17),
+                      child: Text(
+                        "1",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
+                ),
+              ),
           separatorBuilder: (context, index) =>
               Divider(thickness: 2, indent: 80),
           itemCount: ChatNames.name.length),
+
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.edit),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Search(),))),
     );
   }
 }
