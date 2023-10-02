@@ -1,3 +1,4 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:test_page/ulits/database/database_const.dart';
 import 'package:test_page/view/chat_page/chat_page.dart';
@@ -11,6 +12,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+TextEditingController textController = TextEditingController();
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -19,11 +22,21 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromARGB(255, 34, 111, 173),
         title: Text("Telegram"),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: () {
-              
-            }, icon: Icon(Icons.search),)
+          AnimSearchBar(
+            color: Color.fromARGB(255, 34, 111, 173),
+            prefixIcon: Icon(Icons.search),
+            suffixIcon: Icon(
+              Icons.cancel,
+              size: 15,
+            ),
+            width: 300,
+            textController: textController,
+            onSuffixTap: () {
+              setState(() {
+                textController.clear();
+              });
+            },
+            onSubmitted: (String) {},
           )
         ],
       ),
@@ -69,13 +82,17 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 )),
-               List(),
+            List(),
           ],
         ),
       ),
       body: ListView.separated(
           itemBuilder: (context, index) => ListTile(
-           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(),)),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatPage(),
+                    )),
                 leading: CircleAvatar(
                   radius: 30,
                   backgroundImage:
@@ -109,12 +126,15 @@ class _HomePageState extends State<HomePage> {
           separatorBuilder: (context, index) =>
               Divider(thickness: 2, indent: 80),
           itemCount: ChatNames.name.length),
-
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Color.fromARGB(255, 34, 111, 173),
-            elevation: 0,
-            child: Icon(Icons.edit),
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Contact(),))),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Color.fromARGB(255, 34, 111, 173),
+          elevation: 0,
+          child: Icon(Icons.edit),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Contact(),
+              ))),
     );
   }
 }

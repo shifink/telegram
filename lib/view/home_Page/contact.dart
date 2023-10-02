@@ -1,12 +1,19 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:test_page/view/home_Page/widget/widgetpages/newgroup.dart';
 
 import '../../ulits/database/database_const.dart';
 import '../chat_page/chat_page.dart';
 
-class Contact extends StatelessWidget {
+
+class Contact extends StatefulWidget {
   const Contact({super.key});
 
+  @override
+  State<Contact> createState() => _ContactState();
+}
+TextEditingController textController = TextEditingController();
+class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +22,21 @@ class Contact extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 34, 111, 173),
         title: Text("New Message"),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.search),
-          )
+           AnimSearchBar(
+            color: Color.fromARGB(255, 34, 111, 173),
+            prefixIcon: Icon(Icons.search),
+            suffixIcon: Icon(
+              Icons.cancel,
+              size: 15,
+            ),
+            width: 300,
+            textController: textController,
+            onSuffixTap: () {
+              setState(() {
+                textController.clear();
+              });
+            },
+            onSubmitted: (String) {},)
         ],
       ),
       body: SingleChildScrollView(

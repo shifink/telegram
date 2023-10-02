@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   dots_indicator: ^3.0.0
   smooth_page_indicator: ^1.0.0+2 
+  anim_search_bar: ^2.0.3
+  easy_search_bar: ^2.5.0
 
 dev_dependencies:
   flutter_test:
