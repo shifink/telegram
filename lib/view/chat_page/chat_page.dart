@@ -14,9 +14,9 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
+        leading: BackButton(),
         title: Row(
           children: [
-            BackButton(),
             CircleAvatar(),
             Padding(
               padding: const EdgeInsets.all(10.0),

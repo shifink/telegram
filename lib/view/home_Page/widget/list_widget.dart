@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_page/view/home_Page/contact.dart';
+import 'package:test_page/view/home_Page/widget/widgetpages/calls.dart';
+import 'package:test_page/view/home_Page/widget/widgetpages/nearby.dart';
+import 'package:test_page/view/home_Page/widget/widgetpages/newgroup.dart';
 
 class List extends StatelessWidget {
   const List({super.key});
@@ -7,7 +11,9 @@ class List extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Newgroup(),));
+        },
         leading: Icon(Icons.group),
         title: Text(
           "New group",
@@ -15,7 +21,9 @@ class List extends StatelessWidget {
         ),
       ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+           Navigator.push(context, MaterialPageRoute(builder: (context) => Contact(),));
+        },
         leading: Icon(Icons.person),
         title: Text(
           "Contacts",
@@ -23,7 +31,9 @@ class List extends StatelessWidget {
         ),
       ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Calls(),));
+        },
         leading: Icon(Icons.call_outlined),
         title: Text(
           "calls",
@@ -31,7 +41,9 @@ class List extends StatelessWidget {
         ),
       ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+           Navigator.push(context, MaterialPageRoute(builder: (context) => Nearby(),));
+        },
         leading: Icon(Icons.location_on_outlined),
         title: Text(
           "People Nearby",

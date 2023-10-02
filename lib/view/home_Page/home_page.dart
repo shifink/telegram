@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_page/ulits/database/database_const.dart';
 import 'package:test_page/view/chat_page/chat_page.dart';
-import 'package:test_page/view/home_Page/list_widget.dart';
+import 'package:test_page/view/home_Page/widget/list_widget.dart';
 import 'package:test_page/view/home_Page/contact.dart';
 
 class HomePage extends StatefulWidget {
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Color.fromARGB(255, 34, 111, 173),
             elevation: 0,
             child: Icon(Icons.edit),
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Search(),))),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Contact(),))),
     );
   }
 }
